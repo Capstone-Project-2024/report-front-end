@@ -1,6 +1,8 @@
 #When first cloning run the following after the clone has been made
-npm install
-ng add @angular/material
+
+`npm install`
+
+`ng add @angular/material`
 
 # CapstoneProject
 
