@@ -1,3 +1,7 @@
+#When first cloning run the following after the clone has been made
+npm install
+ng add @angular/material
+
 # CapstoneProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
