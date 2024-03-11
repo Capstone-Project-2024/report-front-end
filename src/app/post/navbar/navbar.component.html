@@ -1,0 +1,48 @@
+<mat-toolbar>
+  <button mat-button (click)= "showFiller=!showFiller" type="button">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="FounditNav-spacer"></span>
+  <!-- <button type="button" mat-button (click)="drawer.toggle()"> -->
+  <span>FoundIt</span>
+  <span class="FounditNav-spacer"></span>
+  <button routerLink="" mat-button>Home</button>
+  <button [mat-menu-trigger-for]="Products" mat-button>Product</button>
+    <mat-menu #Products>
+      <button routerLink="api1" mat-menu-item>API1</button>
+      <button mat-menu-item>API2</button>
+      <button mat-menu-item>API3</button>
+      <button mat-menu-item>API4</button>
+    </mat-menu>
+  <button routerLink="price" mat-button>Pricing</button>
+  <button routerLink="contactus" mat-button>Contact</button>
+  <span class="FounditNav-spacer"></span>
+  <button routerLink="login" mat-button >Login</button>
+  <button routerLink="input" mat-button >Become a member</button>
+</mat-toolbar>
+
+<!-- <mat-drawer-container class="FounditNav-container" mod ="side" autosize>
+  <mat-drawer #drawer class="FounditNav-sidenav" mode="side">
+    <a routerLink="/crisis-center">Crisis Center</a>
+    <p></p>
+    @if (showFiller) {
+      <p>Lorem, ipsum dolor sit amet consectetur.</p>
+    }
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+</mat-drawer-container> -->
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]= "showFiller" mode="side">
+    <mat-list>
+      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
+      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <a>end</a>
+  </mat-sidenav-content>
+</mat-sidenav-container>
