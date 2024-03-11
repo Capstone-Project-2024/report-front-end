@@ -9,6 +9,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
-    return this.http.get('http://127.0.0.1:5000/');
+    return this.http.get<any>('http://127.0.0.1:5000/');
 }
+
 }

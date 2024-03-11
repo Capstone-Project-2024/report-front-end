@@ -10,13 +10,16 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
   title = 'Capstone-Project';
-  message: string = '';
+  data: any[] = [];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() { 
     this.dataService.getData().subscribe({
-      next: (data) => this.message = data.message,
+      next: (data) => {
+        console.log(data),
+        this.data = data
+      },
       error: (error) => console.error('There was an error!', error),
     })
   }
