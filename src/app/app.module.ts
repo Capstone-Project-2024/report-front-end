@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PricingComponent } from './pricing/pricing.component';
 import { LoginComponent } from './login/login.component';
 import { API1Component } from './api1/api1.component';
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { API1Component } from './api1/api1.component';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [
     provideAnimationsAsync()
