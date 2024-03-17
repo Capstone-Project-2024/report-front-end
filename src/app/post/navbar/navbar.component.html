@@ -1,40 +1,66 @@
 <mat-toolbar>
-  <button mat-button (click)= "showFiller=!showFiller" type="button">
+  <button mat-button (click)= "drawer.toggle()" type="button">
     <mat-icon>menu</mat-icon>
   </button>
   <span class="FounditNav-spacer"></span>
   <!-- <button type="button" mat-button (click)="drawer.toggle()"> -->
-  <span>FoundIt</span>
+  <span>DataDive</span>
   <span class="FounditNav-spacer"></span>
-  <button routerLink="" mat-button>Home</button>
-  <button [mat-menu-trigger-for]="Products" mat-button>Product</button>
+  <button routerLink="" mat-button><mat-icon>home</mat-icon>Home</button>
+  <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
     <mat-menu #Products>
       <button routerLink="api1" mat-menu-item>API1</button>
-      <button mat-menu-item>API2</button>
-      <button mat-menu-item>API3</button>
-      <button mat-menu-item>API4</button>
+      <button routerLink="api2" mat-menu-item>API2</button>
+      <button routerLink="api3" mat-menu-item>API3</button>
     </mat-menu>
-  <button routerLink="price" mat-button>Pricing</button>
-  <button routerLink="contactus" mat-button>Contact</button>
+  <button routerLink="price" mat-button><mat-icon>attach_money</mat-icon>Pricing</button>
+  <button routerLink="contactus" mat-button><mat-icon>phone</mat-icon>Contact</button>
   <span class="FounditNav-spacer"></span>
-  <button routerLink="login" mat-button >Login</button>
-  <button routerLink="input" mat-button >Become a member</button>
+  <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>Profile</button>
+  <button routerLink="login" mat-button ><mat-icon>person</mat-icon>Login</button>
+  <button routerLink="input" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
 </mat-toolbar>
 
-<!-- <mat-drawer-container class="FounditNav-container" mod ="side" autosize>
-  <mat-drawer #drawer class="FounditNav-sidenav" mode="side">
-    <a routerLink="/crisis-center">Crisis Center</a>
-    <p></p>
-    @if (showFiller) {
-      <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer opened="false" mode="side">
+    <mat-nav-list>
+      <mat-list-item>
+        <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>Profile</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="" mat-button><mat-icon>home</mat-icon>Home</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
+          <mat-menu #Products>
+            <button routerLink="api1" mat-menu-item>API1</button>
+            <button routerLink="api2" mat-menu-item>API2</button>
+            <button routerLink="api3" mat-menu-item>API3</button>
+          </mat-menu>
+        </mat-list-item>
+        <mat-list-item>
+          <button routerLink="price" mat-button><mat-icon>attach_money</mat-icon>Pricing</button>
+        </mat-list-item>
+        <mat-list-item>
+          <button routerLink="contactus" mat-button><mat-icon>phone</mat-icon>Contact</button>
+        </mat-list-item>
+        <mat-list-item>
+          <button routerLink="login" mat-button ><mat-icon>person</mat-icon>Login</button>
+        </mat-list-item>
+        <mat-list-item>
+         <button routerLink="input" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
+        </mat-list-item>
+    </mat-nav-list>
   </mat-drawer>
-</mat-drawer-container> -->
+  <mat-drawer-container>
+    <div style="min-height: 800px; background-color: grey;">
+      <router-outlet />
+    </div>
 
-<mat-sidenav-container>
+  </mat-drawer-container>
+</mat-drawer-container>
+
+<!-- <mat-sidenav-container autosize>
   <mat-sidenav [(opened)]= "showFiller" mode="side">
     <mat-list>
       <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
@@ -43,6 +69,6 @@
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <a>end</a>
+    <router-outlet />
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
