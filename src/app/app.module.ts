@@ -26,6 +26,7 @@ import { API1Component } from './api1/api1.component';
 import { API2Component } from './api2/api2.component';
 import { API3Component } from './api3/api3.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [
     provideAnimationsAsync()

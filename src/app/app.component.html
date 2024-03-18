@@ -1,24 +1,32 @@
 <!-- basic call of local db to display data -->
+<h2>Database Data</h2>
 <ul>
-    <li *ngFor="let item of data">{{ item.id }}, {{ item.username }}, {{ item.password }}, {{ item.email }}</li>
+    <li *ngFor="let item of accountData">{{ item.id }}, {{ item.username }}, {{ item.password }}, {{ item.email }}</li>
 </ul>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<h2>Cryptocurrency Data</h2>
+<input [(ngModel)]="currentCoinSymbol" placeholder="Enter Crypto Symbol">
+<button (click)="fetchCryptoData()">Get Data</button>
+
+<ul>
+    <li>Name: {{ coinName }}</li>
+    <li>Price: {{ coinPriceUsd }}</li>
+    <li>Circulating Supply: {{ circulatingSupply }}</li>
+    <li>Max Supply: {{ maxSupply }}</li>
+    <li>Market Cap: {{ marketCapUsd }}</li>
+    <li>Percent Change - Hour: %{{ percentHour }}</li>
+    <li>Percent Change - Day: %{{ percentDay }}</li>
+    <li>Percent Change - Week: %{{ percentWeek }}</li>
+    <li>Coin Rank {{ coinRank }}</li>
+</ul>
+
+
+
+<!-- <ul>
+  <li *ngFor="let crypto of cryptoData">{{ crypto.name }}: {{ crypto.price_usd }}</li>
+</ul> -->
+
 <app-navbar></app-navbar>
-<!-- <app-post-test></app-post-test> -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-
-
+<router-outlet />
