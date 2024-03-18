@@ -1,8 +1,25 @@
-<h1>API TEMPLATE</h1>
-<h3>API API</h3>
+<h1>CoinLore</h1>
+<h3>CoinLore Data</h3>
 
+<form>
+  <mat-form-field>
+    <mat-label>CryptoCurrency</mat-label>
+    <mat-select [(ngModel)]="currentCoinSymbol" (selectionChange)="onCryptoSelect()">
+      <mat-option *ngFor="let coin of coinData" [value]="coin.symbol">
+        {{ coin.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
 
-<form class="example-form">
+<!-- Displaying selected cryptocurrency details -->
+<div *ngIf="selectedCoinDetails">
+  <p>Name: {{ selectedCoinDetails.name }}</p>
+  <p>Symbol: {{ selectedCoinDetails.symbol }}</p>
+  <p>Price USD: {{ selectedCoinDetails.price_usd }}</p>
+</div>
+
+<!-- <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>Company</mat-label>
     <input matInput  placeholder="Google">
@@ -63,4 +80,4 @@
       <mat-error>Email is <strong>required</strong></mat-error>
     }
   </mat-form-field>
-</form>
+</form> -->
