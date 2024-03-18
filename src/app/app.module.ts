@@ -23,6 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PricingComponent } from './pricing/pricing.component';
 import { LoginComponent } from './login/login.component';
 import { API1Component } from './api1/api1.component';
+import { API2Component } from './api2/api2.component';
+import { API3Component } from './api3/api3.component';
+import { ProfileComponent } from './profile/profile.component';
 import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
@@ -35,6 +38,9 @@ import { MatSelectModule } from '@angular/material/select'
     PricingComponent,
     LoginComponent,
     API1Component,
+    API2Component,
+    API3Component,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
