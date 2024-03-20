@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PostTestComponent } from './post/post-test/post-test.component';
-import { FormsModule} from '@angular/forms';
 import { NavbarComponent } from './post/navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -19,7 +18,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PricingComponent } from './pricing/pricing.component';
 import { LoginComponent } from './login/login.component';
 import { API1Component } from './api1/api1.component';
@@ -27,6 +26,8 @@ import { API2Component } from './api2/api2.component';
 import { API3Component } from './api3/api3.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatSelectModule } from '@angular/material/select'
+import { MatTableModule } from '@angular/material/table'
+import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -58,7 +59,9 @@ import { MatSelectModule } from '@angular/material/select'
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatCardModule,
   ],
   providers: [
     provideAnimationsAsync()
