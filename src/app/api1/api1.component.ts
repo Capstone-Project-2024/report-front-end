@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Directive, HostListener } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { DataService } from '../services/data.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-api1',
   templateUrl: './api1.component.html',
   styleUrls: ['./api1.component.css']
 })
+
 export class API1Component {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   coinData: any[] = [];
-  selectedCoinDetails: any = null;
-
 
   currentCoinSymbol: string = '';
-  
+  selectedCoinDetails: any = null;
 
+  displayedColumns: string[] = ['rank', 'name', 'symbol', 'price_usd', 'csupply', 'msupply', 'market_cap_usd', 'percent_change_1h', 'percent_change_24h', 'percent_change_7d', 'tsupply'];
+
+  dataSource = new MatTableDataSource<any>([]);
+  
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -26,22 +30,32 @@ export class API1Component {
   fetchCryptoData() {
     this.dataService.getCryptoApiData().subscribe({
       next: (data) => {
-        this.coinData = data;
-
-        // const coinData = data.data.find(crypto => crypto.symbol.toUpperCase() === this.currentCoinSymbol.toUpperCase());
-        // if (coinData) {
-        //   console.log(coinData);
-        //   return coinData;
-        // } else {
-          
-        // }
-      }
+        this.coinData = data.data;
+        this.currentCoinSymbol = 'ALL_COINS';
+        this.onCryptoSelect();
+        this.dataSource = new MatTableDataSource<any>(this.coinData);
+        console.log(this.coinData);
+      },
+      error: (err) => console.error(err)
     })
   }
 
   onCryptoSelect() {
-    this.selectedCoinDetails = this.coinData.find(crypto => 
-      crypto.symbol === this.currentCoinSymbol)
+    if (this.currentCoinSymbol === 'ALL_COINS') {
+      this.dataSource.data = this.coinData;
+    } else if (this.currentCoinSymbol) {
+      const selectedCoin = this.coinData.find(coin => coin.symbol === this.currentCoinSymbol);
+      this.dataSource.data = selectedCoin ? [selectedCoin] : [];
+    } else {
+      this.dataSource.data = [];
+    }
   }
+
+  // onCryptoSelect() {
+
+  //   this.selectedCoinDetails = this.coinData.find(coin => coin.symbol === this.currentCoinSymbol);
+
+  //   this.dataSource.data = this.selectedCoinDetails;
+  // }
 
 }

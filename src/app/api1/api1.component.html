@@ -1,23 +1,32 @@
-<h1>CoinLore</h1>
-<h3>CoinLore Data</h3>
+<h1 class="center">CoinLore</h1>
+<h3 class="center">CoinLore Data</h3>
 
-<form>
-  <mat-form-field>
-    <mat-label>CryptoCurrency</mat-label>
-    <mat-select [(ngModel)]="currentCoinSymbol" (selectionChange)="onCryptoSelect()">
-      <mat-option *ngFor="let coin of coinData" [value]="coin.symbol">
-        {{ coin.name }}
-      </mat-option>
+<form class="center">
+  <mat-form-field appearance="fill" class="center">
+    <mat-select [(ngModel)]="currentCoinSymbol" name="cryptoSelect" (selectionChange)="onCryptoSelect()">
+      <mat-option value="ALL_COINS">View All</mat-option>
+      <mat-option *ngFor="let coin of coinData" [value]="coin.symbol">{{ coin.name }}</mat-option>
     </mat-select>
   </mat-form-field>
 </form>
 
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef> {{ column | titlecase }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
 <!-- Displaying selected cryptocurrency details -->
-<div *ngIf="selectedCoinDetails">
+<!-- <div *ngIf="selectedCoinDetails">
   <p>Name: {{ selectedCoinDetails.name }}</p>
   <p>Symbol: {{ selectedCoinDetails.symbol }}</p>
   <p>Price USD: {{ selectedCoinDetails.price_usd }}</p>
-</div>
+</div> -->
 
 <!-- <form class="example-form">
   <mat-form-field class="example-full-width">
