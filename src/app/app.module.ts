@@ -7,17 +7,17 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PostTestComponent } from './post/post-test/post-test.component';
 import { NavbarComponent } from './post/navbar/navbar.component';
+import { RegisterComponent } from './register/register.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import { registerComponent } from './register/register.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { FormComponent } from './form/form.component';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PricingComponent } from './pricing/pricing.component';
 import { LoginComponent } from './login/login.component';
@@ -34,7 +34,6 @@ import { MatCardModule } from '@angular/material/card'
     AppComponent,
     PostTestComponent,
     NavbarComponent,
-    registerComponent,
     FormComponent,
     PricingComponent,
     LoginComponent,
@@ -42,6 +41,7 @@ import { MatCardModule } from '@angular/material/card'
     API2Component,
     API3Component,
     ProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
