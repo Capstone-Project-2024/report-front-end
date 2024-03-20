@@ -5,12 +5,12 @@ import { DataService } from '../services/data.service';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-api1',
-  templateUrl: './api1.component.html',
-  styleUrls: ['./api1.component.css']
+  selector: 'app-coinlore',
+  templateUrl: './coinlore.component.html',
+  styleUrls: ['./coinlore.component.css']
 })
 
-export class API1Component {
+export class coinloreComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   coinData: any[] = [];
 
@@ -20,7 +20,7 @@ export class API1Component {
   displayedColumns: string[] = ['rank', 'name', 'symbol', 'price_usd', 'csupply', 'msupply', 'market_cap_usd', 'percent_change_1h', 'percent_change_24h', 'percent_change_7d', 'tsupply'];
 
   dataSource = new MatTableDataSource<any>([]);
-  
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
