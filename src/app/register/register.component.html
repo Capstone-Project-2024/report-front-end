@@ -1,0 +1,30 @@
+<h1>Register</h1>
+
+<mat-card>
+  <table cellspacing="0"><tr>
+    <td><mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput [(ngModel)]="username" name="firstname" required placeholder="John">
+    </mat-form-field></td>
+    <td><mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="username" name="lastname" required placeholder="Doe">
+    </mat-form-field></td>
+  </tr></table>
+  <table cellspacing="0"><tr>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="username" name="username" required placeholder="JohnDoe123">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="password" name="password" required placeholder="Ex. passcode123">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input matInput [(ngModel)]="password" name="password"  required  placeholder="Ex. passcode123">
+  </mat-form-field>
+</tr></table>
+<button mat-raised-button color="primary" type="submit">Login</button>
+<p>Already have an account? Click <a routerLink="/login">HERE</a> to login!</p>
+</mat-card>
