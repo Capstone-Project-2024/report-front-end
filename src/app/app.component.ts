@@ -43,11 +43,6 @@ export class AppComponent {
   }
 
   fetchCryptoData() {
-    if (!this.currentCoinSymbol) {
-      console.log("No crypto symbol entered");
-      return;
-    }
-
     this.dataService.getCryptoApiData().subscribe({
       next: (data) => {
         const coinData = data.data.find(crypto => crypto.symbol.toUpperCase() === this.currentCoinSymbol.toUpperCase());
