@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { API1Component } from './api1.component';
+import { coinloreComponent } from './coinlore.component';
 
-describe('API1Component', () => {
-  let component: API1Component;
-  let fixture: ComponentFixture<API1Component>;
+describe('coinloreComponent', () => {
+  let component: coinloreComponent;
+  let fixture: ComponentFixture<coinloreComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [API1Component]
+      declarations: [coinloreComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(API1Component);
+
+    fixture = TestBed.createComponent(coinloreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

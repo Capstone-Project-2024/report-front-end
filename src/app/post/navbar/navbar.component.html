@@ -9,7 +9,7 @@
   <button routerLink="" mat-button><mat-icon>home</mat-icon>Home</button>
   <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
     <mat-menu #Products>
-      <button routerLink="api1" mat-menu-item>API1</button>
+      <button routerLink="coinlore" mat-menu-item>API1</button>
       <button routerLink="api2" mat-menu-item>API2</button>
       <button routerLink="api3" mat-menu-item>API3</button>
     </mat-menu>
@@ -18,7 +18,7 @@
   <span class="FounditNav-spacer"></span>
   <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>Profile</button>
   <button routerLink="login" mat-button ><mat-icon>person</mat-icon>Login</button>
-  <button routerLink="input" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
+  <button routerLink="register" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
 </mat-toolbar>
 
 <mat-drawer-container autosize>
@@ -33,7 +33,7 @@
       <mat-list-item>
         <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
           <mat-menu #Products>
-            <button routerLink="api1" mat-menu-item>API1</button>
+            <button routerLink="coinlore" mat-menu-item>API1</button>
             <button routerLink="api2" mat-menu-item>API2</button>
             <button routerLink="api3" mat-menu-item>API3</button>
           </mat-menu>
@@ -48,7 +48,7 @@
           <button routerLink="login" mat-button ><mat-icon>person</mat-icon>Login</button>
         </mat-list-item>
         <mat-list-item>
-         <button routerLink="input" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
+         <button routerLink="register" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
         </mat-list-item>
     </mat-nav-list>
   </mat-drawer>
