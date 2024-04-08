@@ -28,6 +28,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatSelectModule } from '@angular/material/select'
 import { MatTableModule } from '@angular/material/table'
 import { MatCardModule } from '@angular/material/card'
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { MatCardModule } from '@angular/material/card'
     MatSelectModule,
     MatTableModule,
     MatCardModule,
+    RouterModule.forRoot(routes, { useHash: true})
   ],
   providers: [
     provideAnimationsAsync()
