@@ -26,8 +26,8 @@ export class AppComponent {
   coinRank: string | null = null;
 
   currentCoinSymbol: string = '';
-  
 
+  // image = "assets/CapstoneBackground.png";
   constructor(private dataService: DataService) { }
 
   ngOnInit() {

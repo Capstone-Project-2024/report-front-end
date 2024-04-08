@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   showFiller = false;
+  image ="../../assets/CapstoneBackground.png";
 }

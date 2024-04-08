@@ -1,27 +1,27 @@
-<mat-toolbar>
+<mat-toolbar class="ColorScheme-Nav">
   <button mat-button (click)= "drawer.toggle()" type="button">
-    <mat-icon>menu</mat-icon>
+    <mat-icon>person</mat-icon>
   </button>
   <span class="FounditNav-spacer"></span>
   <!-- <button type="button" mat-button (click)="drawer.toggle()"> -->
-  <span>DataDive</span>
+  <img src="../../assets/DataDiveImage.png" height="90%"><span>DataDive</span>
   <span class="FounditNav-spacer"></span>
   <button routerLink="" mat-button><mat-icon>home</mat-icon>Home</button>
   <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
     <mat-menu #Products>
-      <button routerLink="coinlore" mat-menu-item>API1</button>
+      <button routerLink="coinlore" mat-menu-item>CoinLore</button>
       <button routerLink="api2" mat-menu-item>API2</button>
       <button routerLink="api3" mat-menu-item>API3</button>
     </mat-menu>
-  <button routerLink="price" mat-button><mat-icon>attach_money</mat-icon>Pricing</button>
+  <!-- <button routerLink="price" mat-button><mat-icon>attach_money</mat-icon>Pricing</button> -->
   <button routerLink="contactus" mat-button><mat-icon>phone</mat-icon>Contact</button>
   <span class="FounditNav-spacer"></span>
-  <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>Profile</button>
+  <!-- <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>Profile</button> -->
   <button routerLink="login" mat-button ><mat-icon>person</mat-icon>Login</button>
   <button routerLink="register" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
 </mat-toolbar>
-
-<mat-drawer-container autosize>
+<!-- autosize -->
+<mat-drawer-container class="MatDrawerNav">
   <mat-drawer #drawer opened="false" mode="side">
     <mat-nav-list>
       <mat-list-item>
@@ -33,7 +33,7 @@
       <mat-list-item>
         <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
           <mat-menu #Products>
-            <button routerLink="coinlore" mat-menu-item>API1</button>
+            <button routerLink="coinlore" mat-menu-item>CoinLore</button>
             <button routerLink="api2" mat-menu-item>API2</button>
             <button routerLink="api3" mat-menu-item>API3</button>
           </mat-menu>
@@ -52,10 +52,11 @@
         </mat-list-item>
     </mat-nav-list>
   </mat-drawer>
-  <mat-drawer-container>
-    <div style="min-height: 800px; background-color: grey;">
+  <mat-drawer-container class = "RouterStyle" [ngStyle]="{ backgroundImage: 'linear-gradient(to bottom, #000000 5%, transparent), url( ../../assets/CapstoneBackground.png)' }">
+    <div >
       <router-outlet />
     </div>
+
 
   </mat-drawer-container>
 </mat-drawer-container>
