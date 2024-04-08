@@ -17,6 +17,13 @@ export class DataService {
 
   getAccountData(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/accounts`);
-}
+  }
 
+  postExchangeData(data: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/api/currencyExchange`, data);
+  }
+
+  getExchangeData(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/api/currencyExchange`); 
+  }
 }
