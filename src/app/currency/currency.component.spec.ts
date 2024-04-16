@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { API2Component } from './api2.component';
+import { API2Component } from './currency.component';
 
 describe('API2Component', () => {
   let component: API2Component;
@@ -11,7 +11,7 @@ describe('API2Component', () => {
       declarations: [API2Component]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(API2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();

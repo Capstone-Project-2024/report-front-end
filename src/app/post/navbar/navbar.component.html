@@ -10,7 +10,7 @@
   <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
     <mat-menu #Products>
       <button routerLink="coinlore" mat-menu-item>CoinLore</button>
-      <button routerLink="api2" mat-menu-item>API2</button>
+      <button routerLink="currency" mat-menu-item>Currency Exchange</button>
       <button routerLink="api3" mat-menu-item>API3</button>
     </mat-menu>
   <!-- <button routerLink="price" mat-button><mat-icon>attach_money</mat-icon>Pricing</button> -->
@@ -25,16 +25,16 @@
   <mat-drawer #drawer opened="false" mode="side">
     <mat-nav-list>
       <mat-list-item>
-        <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>Profile</button>
+        <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>View Profile</button>
       </mat-list-item>
       <mat-list-item>
-        <button routerLink="" mat-button><mat-icon>home</mat-icon>Home</button>
+        <button routerLink="" mat-button><mat-icon>home</mat-icon>Log Out</button>
       </mat-list-item>
-      <mat-list-item>
+      <!-- <mat-list-item>
         <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
           <mat-menu #Products>
             <button routerLink="coinlore" mat-menu-item>CoinLore</button>
-            <button routerLink="api2" mat-menu-item>API2</button>
+            <button routerLink="currency" mat-menu-item>Currency Exchange</button>
             <button routerLink="api3" mat-menu-item>API3</button>
           </mat-menu>
         </mat-list-item>
@@ -49,7 +49,7 @@
         </mat-list-item>
         <mat-list-item>
          <button routerLink="register" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
-        </mat-list-item>
+        </mat-list-item> -->
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-container class = "RouterStyle" [ngStyle]="{ backgroundImage: 'linear-gradient(to bottom, #000000 5%, transparent), url( ../../assets/CapstoneBackground.png)' }">

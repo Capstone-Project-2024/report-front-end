@@ -22,7 +22,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PricingComponent } from './pricing/pricing.component';
 import { LoginComponent } from './login/login.component';
 import { coinloreComponent } from './coinlore/coinlore.component';
-import { API2Component } from './api2/api2.component';
+import { currencyComponent } from './currency/currency.component';
 import { API3Component } from './api3/api3.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatSelectModule } from '@angular/material/select'
@@ -40,7 +40,7 @@ import { routes } from './app.routes';
     PricingComponent,
     LoginComponent,
     coinloreComponent,
-    API2Component,
+    currencyComponent,
     API3Component,
     ProfileComponent,
     RegisterComponent,

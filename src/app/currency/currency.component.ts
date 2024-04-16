@@ -5,12 +5,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-api2',
-  templateUrl: './api2.component.html',
-  styleUrl: './api2.component.css'
+  selector: 'app-currency',
+  templateUrl: './currency.component.html',
+  styleUrl: './currency.component.css'
 })
 
-export class API2Component {
+export class currencyComponent {
   currencyData: any [] = [];
 
   currencyDict = [
@@ -51,7 +51,7 @@ export class API2Component {
         if (data) {
 
           console.error("Invalid data format:", data);
-        }         
+        }
       },
       error: (err) => {
         console.error("Error fetching currency data:", err);
@@ -61,7 +61,7 @@ export class API2Component {
 
   onCurrencySelect(){
     if (this.current_currency === '') {
-      this.dataSource.data = this.currencyDict;     
+      this.dataSource.data = this.currencyDict;
     } else if (this.current_currency){
       const selectedCurrency = this.currencyDict.find(currency => currency.currency === this.current_currency);
       if (selectedCurrency) {
@@ -76,9 +76,9 @@ export class API2Component {
       starting_currency: this.starting_currency,
       currency_Amount: this.currency_amount
     };
-  
-    console.log("Request Data:", requestData);  
-  
+
+    console.log("Request Data:", requestData);
+
     this.dataService.postExchangeData(requestData).subscribe(response => {
       console.log("Currency Exchange API call successful:", response);
       if (response && response.old_currency) {
@@ -97,4 +97,4 @@ export class API2Component {
       console.error("Error occurred during currency exchange:", error);
     });
   }
-}   
+}

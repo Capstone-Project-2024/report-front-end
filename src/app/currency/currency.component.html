@@ -1,9 +1,10 @@
+<h1 class="center">Currency Exchange</h1>
 <mat-card>
   <mat-card-header>
     <mat-card-title>Currency Exchange</mat-card-title>
   </mat-card-header>
+  <form (ngSubmit)="fetchCurrencyData()">
   <mat-card-content>
-    <form (ngSubmit)="fetchCurrencyData()">
 
       <mat-form-field appearance="fill">
         <mat-select [(ngModel)]="starting_currency" name='starting_currency' placeholder="Current currency" (selectionChange)='onCurrencySelect()'>
@@ -18,17 +19,19 @@
       </mat-form-field>
 
       <mat-form-field appearance="fill">
-        <mat-label>Amount</mat-label>
-        <input matInput [(ngModel)]="  currency_amount" name="currency_amount" required>
+        <!-- <mat-label>Amount</mat-label> -->
+        <input matInput [(ngModel)]="  currency_amount" name="currency_amount" placeholder="Amount to be Exchanged" required>
       </mat-form-field>
-    </form>
+  </mat-card-content>
+  </form>
+  <mat-card-content>
     <form (ngSubmit)="onExchange()">
       <button mat-raised-button color="primary" type="submit">Exchange</button>
     </form>
-    
+
   </mat-card-content>
 </mat-card>
-
+<mat-card>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container *ngFor="let column of displayedResponse" [matColumnDef]="column">
@@ -39,3 +42,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedResponse;"></tr>
   </table>
 </div>
+</mat-card>
