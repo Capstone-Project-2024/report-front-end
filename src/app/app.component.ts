@@ -35,7 +35,7 @@ export class AppComponent {
 
     this.dataService.getAccountData().subscribe({
       next: (data) => {
-        console.log(data),
+        //console.log(data),
         this.accountData = data
       },
       error: (error) => console.error('There was an error!', error)
