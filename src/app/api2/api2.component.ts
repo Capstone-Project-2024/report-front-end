@@ -39,18 +39,13 @@ export class API2Component {
 
   dataSource = new MatTableDataSource<any>([]);
 
-
   constructor(private dataService: DataService) { }
 
    fetchCurrencyData() {
     console.log("Fetching currency data...");
     this.dataService.getExchangeData().subscribe({
       next: (data) => {
-        console.log("Received data:", data);
-
         if (data) {
-
-          console.error("Invalid data format:", data);
         }         
       },
       error: (err) => {
