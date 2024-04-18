@@ -1,5 +1,4 @@
 import { Component, Directive, HostListener } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { DataService } from '../services/data.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,7 +10,6 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 
 export class coinloreComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   coinData: any[] = [];
 
   currentCoinSymbol: string = '';
@@ -34,7 +32,6 @@ export class coinloreComponent {
         this.currentCoinSymbol = 'ALL_COINS';
         this.onCryptoSelect();
         this.dataSource = new MatTableDataSource<any>(this.coinData);
-        console.log(this.coinData);
       },
       error: (err) => console.error(err)
     })
@@ -46,16 +43,10 @@ export class coinloreComponent {
     } else if (this.currentCoinSymbol) {
       const selectedCoin = this.coinData.find(coin => coin.symbol === this.currentCoinSymbol);
       this.dataSource.data = selectedCoin ? [selectedCoin] : [];
+      console.log(selectedCoin)
     } else {
       this.dataSource.data = [];
     }
   }
-
-  // onCryptoSelect() {
-
-  //   this.selectedCoinDetails = this.coinData.find(coin => coin.symbol === this.currentCoinSymbol);
-
-  //   this.dataSource.data = this.selectedCoinDetails;
-  // }
 
 }

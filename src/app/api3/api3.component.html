@@ -1,66 +1,21 @@
-<h1>API TEMPLATE 3</h1>
-<h3>API API 3</h3>
+<h1 class="center">Stock Data</h1>
+<h3 class="center">Search by Market or Index</h3>
 
-
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Company</mat-label>
-    <input matInput  placeholder="Google">
-  </mat-form-field>
-
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>First name</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>Last Name</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-  </tr></table>
-
-  <p>
-    <mat-form-field class="example-full-width">
-      <mat-label>Address</mat-label>
-      <textarea matInput placeholder="Ex. 100 Main St"></textarea>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Address 2</mat-label>
-      <textarea matInput placeholder="Ex. 100 Main St"></textarea>
-    </mat-form-field>
-  </p>
-
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>City</mat-label>
-      <input matInput placeholder="Ex. San Francisco">
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>State</mat-label>
-      <input matInput placeholder="Ex. California">
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width">
-      <mat-label>Postal Code</mat-label>
-      <input matInput #postalCode maxlength="5" placeholder="Ex. 94105">
-      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-    </mat-form-field></td>
-  </tr></table>
-
-  <mat-form-field class="example-full-width">
-    <mat-label>Telephone</mat-label>
-    <span matTextPrefix>+1 &nbsp;</span>
-    <input type="tel" matInput maxlength="10" placeholder="555-555-1234">
-    <mat-icon matSuffix>mode_edit</mat-icon>
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-    @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-      <mat-error>Please enter a valid email address</mat-error>
-    }
-    @if (emailFormControl.hasError('required')) {
-      <mat-error>Email is <strong>required</strong></mat-error>
-    }
+<!-- Market search with autocomplete -->
+<form class="center">
+  <mat-form-field appearance="fill" class="center">
+    <input matInput placeholder="Search By Market" [formControl]="searchControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSymbolSelect($event.option.value)">
+      <mat-option *ngFor="let market of filteredMarketData | async" [value]="market.symbol">
+        {{ market.longName }}, {{ market.symbol }}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
 </form>
+
+<div *ngIf="stockPrice">
+  <h3>Selected Stock Details:</h3>
+  <p><strong>Symbol:</strong> {{ stockPrice.ticker }}</p>
+  <p><strong>Name:</strong> {{ stockPrice.name }}</p>
+  <p><strong>Price:</strong> {{ stockPrice.price }}</p>
+</div>

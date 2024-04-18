@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
@@ -26,4 +26,13 @@ export class DataService {
   getExchangeData(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/api/currencyExchange`); 
   }
+
+  getMarketData(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/api/stockMarket`);
+  }
+
+  getStockPrice(symbol: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/api/stockMarketValues`, { tickerSymbol: symbol })
+  }
+
 }

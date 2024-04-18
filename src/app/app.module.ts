@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatCardModule } from '@angular/material/card'
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { routes } from './app.routes';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    MatAutocompleteModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -60,7 +63,6 @@ import { routes } from './app.routes';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
     MatSelectModule,
     MatTableModule,
     MatCardModule,
