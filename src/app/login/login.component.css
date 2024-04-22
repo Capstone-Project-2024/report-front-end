@@ -1,0 +1,26 @@
+mat-card{
+  text-align: center;
+  box-shadow: 1px 2px 10px 0 #000000 !important;
+}
+mat-card-title{
+  text-align: center;
+  margin: auto;
+}
+mat-form-field{
+  width: 60%;
+}
+input{
+  width: 50%;
+}
+form{
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+h1{
+  text-align: center;
+}
+button{
+  width: 50%;
+}

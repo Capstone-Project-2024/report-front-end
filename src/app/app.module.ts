@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { PostTestComponent } from './post/post-test/post-test.component';
+import { homeComponent } from './post/home/home.component';
 import { NavbarComponent } from './post/navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,8 +22,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PricingComponent } from './pricing/pricing.component';
 import { LoginComponent } from './login/login.component';
 import { coinloreComponent } from './coinlore/coinlore.component';
-import { API2Component } from './api2/api2.component';
-import { API3Component } from './api3/api3.component';
+import { CurrencyComponent } from './Currency/Currency.component';
+import { StockDataComponent } from './StockData/StockData.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatSelectModule } from '@angular/material/select'
 import { MatTableModule } from '@angular/material/table'
@@ -35,14 +35,14 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 @NgModule({
   declarations: [
     AppComponent,
-    PostTestComponent,
+    homeComponent,
     NavbarComponent,
     FormComponent,
     PricingComponent,
     LoginComponent,
     coinloreComponent,
-    API2Component,
-    API3Component,
+    CurrencyComponent,
+    StockDataComponent,
     ProfileComponent,
     RegisterComponent,
   ],

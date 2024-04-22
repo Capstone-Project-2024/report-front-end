@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { API2Component } from './api2.component';
+import { CurrencyComponent } from './Currency.component';
 
-describe('API2Component', () => {
-  let component: API2Component;
-  let fixture: ComponentFixture<API2Component>;
+describe('CurrencyComponent', () => {
+  let component: CurrencyComponent;
+  let fixture: ComponentFixture<CurrencyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [API2Component]
+      declarations: [CurrencyComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(API2Component);
+
+    fixture = TestBed.createComponent(CurrencyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

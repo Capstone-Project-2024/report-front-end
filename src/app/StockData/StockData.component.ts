@@ -6,11 +6,11 @@ import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-api3',
-  templateUrl: './api3.component.html',
-  styleUrls: ['./api3.component.css']
+  selector: 'app-StockData',
+  templateUrl: './StockData.component.html',
+  styleUrls: ['./StockData.component.css']
 })
-export class API3Component {
+export class StockDataComponent {
   marketData: any[] = [];
   stockPrice: any[] = [];
 
@@ -32,8 +32,8 @@ export class API3Component {
 
   filterMarketData(value: string): any[] {
     const filterValue = value.toLowerCase();
-    return this.marketData.filter(option => 
-      option.longName.toLowerCase().includes(filterValue) || 
+    return this.marketData.filter(option =>
+      option.longName.toLowerCase().includes(filterValue) ||
       option.symbol.toLowerCase().includes(filterValue)
     );
   }
