@@ -3,7 +3,7 @@
 
 <form class="center">
   <mat-form-field appearance="fill" class="center">
-    <mat-select [(ngModel)]="currentCoinSymbol" name="cryptoSelect" (selectionChange)="onCryptoSelect()">
+    <mat-select aria-label="Dropdown button with Coin Symbols" [(ngModel)]="currentCoinSymbol" name="cryptoSelect" (selectionChange)="onCryptoSelect()">
       <mat-option value="ALL_COINS">View All</mat-option>
       <mat-option *ngFor="let coin of coinData" [value]="coin.symbol">{{ coin.name }}</mat-option>
     </mat-select>

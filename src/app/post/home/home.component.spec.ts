@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { API3Component } from './api3.component';
+import { homeComponent } from './home.component';
 
-describe('API3Component', () => {
-  let component: API3Component;
-  let fixture: ComponentFixture<API3Component>;
+describe('homeComponent', () => {
+  let component: homeComponent;
+  let fixture: ComponentFixture<homeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [API3Component]
+      declarations: [homeComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(API3Component);
+
+    fixture = TestBed.createComponent(homeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

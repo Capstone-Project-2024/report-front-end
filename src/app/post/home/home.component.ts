@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-post-test',
-  templateUrl: './post-test.component.html',
-  styleUrl: './post-test.component.css'
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
-export class PostTestComponent {
+export class homeComponent {
   enteredValue = '';
   newPost = 'No content';
   secondPost = 'No Content';
