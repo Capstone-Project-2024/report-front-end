@@ -3,7 +3,7 @@
 }
 
 .ColorScheme-Nav{
-  background-color: #001628;
+  background-color: #032541;
   box-shadow: 10px 10px;
   /* height: 100%; */
 }
@@ -20,4 +20,6 @@
 
 .MatDrawerNav{
   height: 93vh;
+  background-color: #355464;
 }
+

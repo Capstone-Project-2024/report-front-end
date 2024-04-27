@@ -23,13 +23,13 @@
 </mat-toolbar>
 <!-- autosize -->
 <mat-drawer-container class="MatDrawerNav">
-  <mat-drawer #drawer opened="false" mode="side">
+  <mat-drawer #drawer opened="false" mode="side" style="background-color: #032541;">
     <mat-nav-list>
       <mat-list-item>
         <button routerLink="profile" aria-label="My Profile" mat-button><mat-icon> person_pin</mat-icon>My Profile</button>
       </mat-list-item>
       <mat-list-item>
-        <button routerLink="" aria-label="Logout" mat-button><mat-icon>power_settings_new</mat-icon>Log Out</button>
+        <button routerLink="" aria-label="Logout" (click)="Loggingout()" mat-button><mat-icon>power_settings_new</mat-icon>Log Out</button>
       </mat-list-item>
       <!-- <mat-list-item>
         <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>

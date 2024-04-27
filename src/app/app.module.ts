@@ -19,6 +19,9 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 import { PricingComponent } from './pricing/pricing.component';
 import { LoginComponent } from './login/login.component';
 import { coinloreComponent } from './coinlore/coinlore.component';
@@ -31,6 +34,7 @@ import { MatCardModule } from '@angular/material/card'
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +49,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     StockDataComponent,
     ProfileComponent,
     RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -66,10 +71,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatSelectModule,
     MatTableModule,
     MatCardModule,
+    MatDialogModule,
     RouterModule.forRoot(routes, { useHash: true})
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

@@ -1,25 +1,62 @@
+<div *ngIf="loggedin;">
 <h1>Profile Page</h1>
-<h2>Welcome, *Username*</h2>
+<h2>Welcome back, {{usr}}</h2>
 <h2>Past API views are displayed below.</h2>
 <br>
-<h2>Coin Lore History</h2>
+
+<h2>Coin Lore Session History</h2>
+
 <mat-card>
-  <mat-card-header style="margin: auto;">
-    <mat-card-title style="text-align: center;">Past 5 Coin Lore Views</mat-card-title>
-  </mat-card-header>
-</mat-card>
+  <table mat-table [dataSource]="coinHist">
+    <ng-container *ngFor="let column of displayedResponseCoin" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef> {{ column | titlecase }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedResponseCoin"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedResponseCoin;"></tr>
+  </table>
+  <br>
+  <p class="info-text mat-body-1" *ngIf="coinHist.length <= 0">No histroy to render</p>
+  </mat-card>
 <br>
-<h2>Currency Exchange History</h2>
+
+<h2>Stock Data Session History</h2>
+
 <mat-card>
-  <mat-card-header style="margin: auto;">
-    <mat-card-title style="text-align: center;">Past 5 Currency Exchange Views</mat-card-title>
-  </mat-card-header>
-</mat-card>
+  <table mat-table [dataSource]="stockHist">
+    <ng-container *ngFor="let column of displayedResponseStock" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef> {{ column | titlecase }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedResponseStock"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedResponseStock;"></tr>
+  </table>
+  <br>
+  <p class="info-text mat-body-1" *ngIf="stockHist.length <= 0">No histroy to render</p>
+  </mat-card>
 <br>
-<h2>Stock Data History</h2>
-<mat-card>
-  <mat-card-header style="margin: auto;">
-    <mat-card-title style="text-align: center;">Past 5 Stock Data Views</mat-card-title>
-  </mat-card-header>
-</mat-card>
+
+<h2>Currency Exchange Session History</h2>
+
+  <mat-card>
+    <table mat-table [dataSource]="currhist">
+      <ng-container *ngFor="let column of displayedResponseCurr" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef> {{ column | titlecase }} </th>
+        <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedResponseCurr"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedResponseCurr;"></tr>
+    </table>
+    <br>
+    <p class="info-text mat-body-1" *ngIf="currhist.length <= 0">No histroy to render</p>
+    </mat-card>
 <br>
+</div>
+<div *ngIf = "!loggedin">
+  <h1>Profile Page</h1>
+  <mat-card>
+    <mat-card-title>Profile Page</mat-card-title>
+    <h2>You are not Logged in!</h2>
+    <h2>To view your profile please log in <a routerLink="/login">HERE</a>.</h2>
+  </mat-card>
+</div>
