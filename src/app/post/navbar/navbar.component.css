@@ -3,7 +3,12 @@
 }
 
 .ColorScheme-Nav{
-  background-color: #032541;
+
+/*   background-color: #032541; */
+
+  background-color: #001628;
+  /*background-color: #347171; */
+
   box-shadow: 10px 10px;
   /* height: 100%; */
 }
