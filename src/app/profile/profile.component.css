@@ -21,3 +21,7 @@ mat-card-title{
 mat-form-field{
   width: 60%;
 }
+
+table {
+  padding: 10px;
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DataService } from './services/data.service';
+import { CurrHistory } from './history/CurrencyHistory.model';
 
 
 @Component({
@@ -10,6 +11,19 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent {
   title = 'Capstone-Project';
+
+  //Code for Account History
+  storedCurr : CurrHistory [] = [];
+
+  onCurrAdded(currHist){
+    this.storedCurr.push(currHist);
+    console.log("OnCurrAdded Log Check", currHist);
+  }
+  logAPPCOMP(){
+    console.log(this.storedCurr);
+  }
+  //History Ends Here
+
   accountData: any[] = [];
   cryptoData: any[] = [];
   coinSymbol: string = null;

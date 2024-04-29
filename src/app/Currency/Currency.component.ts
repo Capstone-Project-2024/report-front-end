@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter,Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpHeaders } from '@angular/common/http';
+import { CurrHistory } from '../history/CurrencyHistory.model';
+import { AptServiceService } from '../apt-service.service';
+
 
 @Component({
   selector: 'app-Currency',
@@ -11,13 +14,10 @@ import { HttpHeaders } from '@angular/common/http';
 })
 
 export class CurrencyComponent {
-  currencyData: any [] = [];
+ 
+  constructor(private dataService: DataService, public currService: AptServiceService) { }
 
   currencyDict = [
-    {id: "United States Dollar (USD)", currency:"USD"},
-    {id: "Euro (EUR)", currency:"EUR"},
-    {id: "Canadian Dollar (CAD)", currency:"CAD"},
-    {id: "Japanese Yen (JPY)", currency:"JPY"},
     {id: "Chinese Yuan (CNY)", currency:"CNY"},
     {id: "British Pound (GBP)", currency:"GBP"},
     {id: "Swiss Franc (CHF)", currency:"CHF"},
@@ -39,7 +39,6 @@ export class CurrencyComponent {
 
   dataSource = new MatTableDataSource<any>([]);
 
-  constructor(private dataService: DataService) { }
 
    fetchCurrencyData() {
     console.log("Fetching currency data...");
@@ -65,6 +64,7 @@ export class CurrencyComponent {
       }
     }
   }
+  
   onExchange() {
     const requestData = {
       wanted_Currency: this.wanted_currency,
@@ -83,8 +83,19 @@ export class CurrencyComponent {
           new_currency: response.new_currency,
           new_amount: response.new_amount
         };
-        const newData = [...this.dataSource.data, exchangeData];
-        this.dataSource.data = newData;
+        
+        const currHist: CurrHistory = {
+          old_currency: response.old_currency,
+          old_amount: response.old_amount,
+          new_currency: response.new_currency,
+          new_amount: response.new_amount
+          };
+          //this.CurrHistoryCreated.emit(currHist);
+          this.currService.addCurr(response.old_currency,response.old_amount, response.new_currency, response.new_amount);
+          // console.log("CurrHist Testing", response.old_currency,response.old_amount, response.new_currency, response.new_amount);
+          const newData = [...this.dataSource.data, exchangeData];
+          this.dataSource.data = newData;
+        
       } else {
         console.error("Invalid response format:", response);
       }

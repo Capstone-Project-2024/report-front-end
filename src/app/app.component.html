@@ -1,32 +1,9 @@
-<!-- basic call of local db to display data -->
-<!-- Commented, feel free to uncomment if needed -->
-<!-- <h2>Database Data</h2>
-<ul>
-    <li *ngFor="let item of accountData">{{ item.id }}, {{ item.username }}, {{ item.password }}, {{ item.email }}</li>
-</ul> -->
+  <app-navbar>
+    <!-- <app-Currency (CurrHistoryCreated)="onCurrAdded($event)"></app-Currency>
+    <app-profile [currhist]="storedCurr"></app-profile> -->
+      
+    <!-- <app-profile [currhist]="storedCurr"></app-profile> -->
+  </app-navbar>
 
-
-<!-- <h2>Cryptocurrency Data</h2>
-<input [(ngModel)]="currentCoinSymbol" placeholder="Enter Crypto Symbol">
-<button (click)="fetchCryptoData()">Get Data</button>
-
-<ul>
-    <li>Name: {{ coinName }}</li>
-    <li>Price: {{ coinPriceUsd }}</li>
-    <li>Circulating Supply: {{ circulatingSupply }}</li>
-    <li>Max Supply: {{ maxSupply }}</li>
-    <li>Market Cap: {{ marketCapUsd }}</li>
-    <li>Percent Change - Hour: %{{ percentHour }}</li>
-    <li>Percent Change - Day: %{{ percentDay }}</li>
-    <li>Percent Change - Week: %{{ percentWeek }}</li>
-    <li>Coin Rank {{ coinRank }}</li>
-</ul> -->
-
- <!-- <ul>
-  <li *ngFor="let crypto of cryptoData">{{ crypto.name }}: {{ crypto.price_usd }}</li>
-</ul> -->
-<!-- <div [ngStyle]="{ backgroundImage: 'url(' + image + ')'}"> -->
-  <app-navbar></app-navbar>
-
-
-<!-- <app-post-test></app-post-test> -->
+  <!-- <button (click)="logAPPCOMP()">APPCOMP BUTTON</button> -->
+  <!-- We found that the two can talk when outside of the navbar, but not while within-->

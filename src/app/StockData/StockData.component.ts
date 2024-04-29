@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { map, startWith } from 'rxjs/operators';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AptServiceService } from '../apt-service.service';
 
 @Component({
   selector: 'app-StockData',
@@ -20,7 +21,11 @@ export class StockDataComponent {
   searchControl = new FormControl();
   filteredMarketData!: Observable<any[]>;
 
-  constructor(private dataService: DataService) { };
+  dataSource = new MatTableDataSource<any>([]);
+
+  displayedResponseStock: string[] = ['ticker', 'name',  'price'];
+
+  constructor(private dataService: DataService, public stockService: AptServiceService) { };
 
   ngOnInit() {
     this.fetchMarketData();
@@ -51,7 +56,23 @@ export class StockDataComponent {
     this.dataService.getStockPrice(symbol).subscribe({
       next: (stockPrice) => {
         this.stockPrice = stockPrice;
-        console.log(this.stockPrice);
+        const exchangeData = {
+          ticker: stockPrice.ticker,
+          name: stockPrice.name,
+          price: stockPrice.price
+        };  
+        if(stockPrice.ticker != ""){
+            
+          const newData = [...this.dataSource.data, exchangeData];
+          this.dataSource.data = newData;
+        }
+        // console.log("StockSelected :", this.stockPrice);
+        // console.log("exchangedData :", this.dataSource);
+
+        //History Code
+        this.stockService.addStock(stockPrice.ticker, stockPrice.name, stockPrice.price);
+        // console.log("Ticker: ", stockPrice.ticker);
+        // console.log("Type :", typeof stockPrice.ticker);
       },
       error: (err) => console.error(err)
     });
