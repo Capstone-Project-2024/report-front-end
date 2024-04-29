@@ -1,3 +1,7 @@
 .center {
     text-align: center;
 }
+
+mat-card {
+    background-color: #2a3a42;
+}

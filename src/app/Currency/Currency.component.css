@@ -5,6 +5,7 @@ mat-card{
   margin: auto;
   margin-bottom: 10px;
   width: 75%;
+  background-color: #2a3a42;
 }
 mat-card-header{
   text-align: center;
