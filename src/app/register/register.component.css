@@ -1,21 +1,25 @@
 mat-card{
   text-align: center;
   box-shadow: 1px 2px 10px 0 #000000 !important;
+  background-color: #2a3a42;
 }
 mat-card-title{
   text-align: center;
   margin: auto;
 }
+
 mat-form-field{
   width: 60%;
 }
 input{
   width: 50%;
+  
 }
 form{
   width: 50%;
   text-align: center;
   margin: auto;
+ 
 }
 
 h1{
@@ -24,3 +28,4 @@ h1{
 button{
   width: 50%;
 }
+
