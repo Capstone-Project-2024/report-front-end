@@ -13,6 +13,7 @@ mat-card{
   width: 90%;
   text-align: center;
   margin: auto;
+  background-color: #2a3a42
 }
 mat-card-title{
   text-align: center;
@@ -24,4 +25,5 @@ mat-form-field{
 
 table {
   padding: 10px;
+  background-color: #2a3a42
 }
