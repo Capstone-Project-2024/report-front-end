@@ -41,7 +41,6 @@ export class AppComponent {
 
   currentCoinSymbol: string = '';
 
-  // image = "assets/CapstoneBackground.png";
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -49,7 +48,6 @@ export class AppComponent {
 
     this.dataService.getAccountData().subscribe({
       next: (data) => {
-        //console.log(data),
         this.accountData = data
       },
       error: (error) => console.error('There was an error!', error)

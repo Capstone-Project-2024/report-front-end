@@ -90,9 +90,7 @@ export class CurrencyComponent {
           new_currency: response.new_currency,
           new_amount: response.new_amount
           };
-          //this.CurrHistoryCreated.emit(currHist);
           this.currService.addCurr(response.old_currency,response.old_amount, response.new_currency, response.new_amount);
-          // console.log("CurrHist Testing", response.old_currency,response.old_amount, response.new_currency, response.new_amount);
           const newData = [...this.dataSource.data, exchangeData];
           this.dataSource.data = newData;
         

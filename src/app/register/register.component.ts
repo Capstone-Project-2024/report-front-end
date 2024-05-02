@@ -21,7 +21,7 @@ export class RegisterComponent {
 
   onRegister(): void {
     if (this.registerForm.invalid) {
-      return; // Stops the function if form is invalid
+      return; 
     }
 
     if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
@@ -32,7 +32,6 @@ export class RegisterComponent {
     this.http.post('/api/register', this.registerForm.value).subscribe({
       next: (response) => {
         console.log('Registration successful', response);
-        // Redirect or other actions
       },
       error: (error) => {
         console.error('Registration failed', error);

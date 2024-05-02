@@ -43,10 +43,6 @@ export class coinloreComponent {
           percent_change_24h: data.percent_change_24h, percent_change_7d: data.percent_change_7d, 
           tsupply:  data.tsupply};
           
-          // this.coinService.addCoin(data.rank, data.name, data.symbol,data.price_usd, data.csupply, 
-          // data.msupply, data.market_cap_usd, data.percent_change_1h, data.percent_change_24h, data.percent_change_7d, data.tsupply);
-          // console.log("Coin Testing", data.old_currency,data.old_amount, data.new_currency, data.new_amount);
-          // console.log("Type Check: ", typeof data.rank);
           const newData = [...this.dataSource.data];
           this.dataSource.data = newData;
     
@@ -61,13 +57,10 @@ export class coinloreComponent {
     } else if (this.currentCoinSymbol) {
       const selectedCoin = this.coinData.find(coin => coin.symbol === this.currentCoinSymbol);
       this.dataSource.data = selectedCoin ? [selectedCoin] : [];
-      // console.log("ElseIf:" ,selectedCoin)
 
       //Coinlore History
       this.coinService.addCoin( selectedCoin.rank, selectedCoin.name, selectedCoin.symbol,selectedCoin.price_usd, selectedCoin.csupply, 
         selectedCoin.msupply, selectedCoin.market_cap_usd, selectedCoin.percent_change_1h, selectedCoin.percent_change_24h, selectedCoin.percent_change_7d, selectedCoin.tsupply);
-        // console.log("Coin Testing", selectedCoin.rank, selectedCoin.name, selectedCoin.symbol,selectedCoin.price_usd, selectedCoin.csupply, selectedCoin.msupply, selectedCoin.market_cap_usd, selectedCoin.percent_change_1h, selectedCoin.percent_change_24h, selectedCoin.percent_change_7d, selectedCoin.tsupply);
-        // console.log("Type Check: ", typeof selectedCoin.csupply);
     } else {
       this.dataSource.data = [];
     }

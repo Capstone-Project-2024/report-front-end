@@ -59,17 +59,13 @@ export class ProfileComponent implements OnInit, OnDestroy{
     });
     this.loggedin = this.coinService.logginauth()
     this.usr = this.coinService.getUsrName();
-    // console.log("Coin OnInit",this.coinHist);
 
-    //this.currService.getCurrs();
-    //console.log("GetCurrs", this.currService.getCurrs());
     this.currhist = this.currService.getCurrs();
     this.currSub = this.currService.getCurrUpdateListener().subscribe((currhist : CurrHistory[])=>{
       this.currhist = currhist;
     });
     this.loggedin = this.currService.logginauth()
     this.usr = this.currService.getUsrName();
-    // console.log("Curr OnInit",this.currhist);
 
     this.stockHist = this.stockService.getStocks();
     this.stockSub = this.stockService.getStockUpdateListener().subscribe((stockHist : StockDataHistory[])=>{
@@ -87,6 +83,5 @@ export class ProfileComponent implements OnInit, OnDestroy{
   }
     
   showData(){
-    // console.log("CurrHist Lenght",this.currhist.length);
   }
 }
