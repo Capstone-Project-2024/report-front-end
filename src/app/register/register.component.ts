@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,29 +8,35 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  user = {
-    username: '',
-    email: '',
-    password: ''
-  };
-  confirmPassword: string = '';
+  registerForm: FormGroup;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder) {
+    this.registerForm = this.formBuilder.group({
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]]
+    });
+  }
 
   onRegister(): void {
-    if (this.user.password === this.confirmPassword) {
-      this.http.post('/api/register', this.user).subscribe({
-        next: (response) => {
-          console.log('Registration successful', response);
-          // Redirect to login or other actions
-        },
-        error: (error) => {
-          console.error('Registration failed', error);
-        }
-      });
-    } else {
-      console.error('Passwords do not match');
-      // Handle passwords not matching case
+    if (this.registerForm.invalid) {
+      return; // Stops the function if form is invalid
     }
+
+    if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
+      this.registerForm.controls['confirmPassword'].setErrors({ mismatch: true });
+      return;
+    }
+
+    this.http.post('/api/register', this.registerForm.value).subscribe({
+      next: (response) => {
+        console.log('Registration successful', response);
+        // Redirect or other actions
+      },
+      error: (error) => {
+        console.error('Registration failed', error);
+      }
+    });
   }
 }

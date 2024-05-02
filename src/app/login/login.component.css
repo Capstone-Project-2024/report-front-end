@@ -25,3 +25,8 @@ h1{
 button{
   width: 50%;
 }
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
