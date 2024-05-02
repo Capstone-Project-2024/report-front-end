@@ -1,30 +1,36 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { AptServiceService } from '../apt-service.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordFormControl = new FormControl('', [Validators.required]);
-
   username: string;
   password: string;
+  errorMessage: string = '';
 
-  constructor(private http: HttpClient, public loginService: AptServiceService) {}
+  constructor(private http: HttpClient) {}
 
   onLogin(): void {
-    this.http.post('/api/login', { username: this.username, password: this.password }).subscribe(response => {
-      console.log(response, "login successful");
-      //console.log("User: ", this.username, "Pass: ", this.password);
-      this.loginService.logginupdate(true);
-      this.loginService.updateUsrName(this.username);
-      alert("Success: You Have Been Logged In!");
-    })   
+    this.http.post('/api/login', { username: this.username, password: this.password })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          this.errorMessage = "Incorrect login information. Please try again.";
+          return throwError(() => new Error('Login failed'));
+        })
+      )
+      .subscribe({
+        next: (response) => {
+          console.log("Login successful", response);
+          this.errorMessage = '';
+        },
+        error: (error) => {
+          console.error("Login error: ", error);
+        }
+      });
   }
-
 }
