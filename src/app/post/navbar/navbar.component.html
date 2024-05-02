@@ -4,24 +4,21 @@
     Account
   </button>
   <span class="FounditNav-spacer"></span>
-  <!-- <button type="button" mat-button (click)="drawer.toggle()"> -->
   <img src="../../assets/dataDiveLogo.png" height="90%"><span>DataDive</span>
   <span class="FounditNav-spacer"></span>
-  <button routerLink=""  aria-label="Home" mat-button><mat-icon>home</mat-icon>Home</button>
+  <button routerLink="" aria-label="Home" mat-button><mat-icon>home</mat-icon>Home</button>
   <button [mat-menu-trigger-for]="Products" aria-label="Products Menu" mat-button><mat-icon>extension</mat-icon>Product</button>
     <mat-menu #Products>
       <button routerLink="coinlore" aria-label="CoinLore" mat-menu-item>CoinLore</button>
       <button routerLink="currency" aria-label="Currency Exchange" mat-menu-item>Currency Exchange</button>
       <button routerLink="stockdata" aria-label="Stock Data" mat-menu-item>Stock Data</button>
     </mat-menu>
-  <!-- <button routerLink="price" mat-button><mat-icon>attach_money</mat-icon>Pricing</button> -->
   <button routerLink="contactus" aria-label="Contact Us" mat-button><mat-icon>phone</mat-icon>Contact</button>
   <span class="FounditNav-spacer"></span>
-  <!-- <button routerLink="profile" mat-button><mat-icon> person_pin</mat-icon>Profile</button> -->
   <button routerLink="login" aria-label="User Login" mat-button ><mat-icon>person</mat-icon>Login</button>
   <button routerLink="register" aria-label="Register As User" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
 </mat-toolbar>
-<!-- autosize -->
+
 <mat-drawer-container class="MatDrawerNav">
   <mat-drawer #drawer opened="false" mode="side" style="background-color: #032541;">
     <mat-nav-list>
@@ -31,46 +28,12 @@
       <mat-list-item>
         <button routerLink="" aria-label="Logout" (click)="Loggingout()" mat-button><mat-icon>power_settings_new</mat-icon>Log Out</button>
       </mat-list-item>
-      <!-- <mat-list-item>
-        <button [mat-menu-trigger-for]="Products" mat-button><mat-icon>extension</mat-icon>Product</button>
-          <mat-menu #Products>
-            <button routerLink="coinlore" mat-menu-item>CoinLore</button>
-            <button routerLink="currency" mat-menu-item>Currency Exchanger</button>
-            <button routerLink="stockdata" mat-menu-item>Stock Data</button>
-          </mat-menu>
-        </mat-list-item>
-        <mat-list-item>
-          <button routerLink="price" mat-button><mat-icon>attach_money</mat-icon>Pricing</button>
-        </mat-list-item>
-        <mat-list-item>
-          <button routerLink="contactus" mat-button><mat-icon>phone</mat-icon>Contact</button>
-        </mat-list-item>
-        <mat-list-item>
-          <button routerLink="login" mat-button ><mat-icon>person</mat-icon>Login</button>
-        </mat-list-item>
-        <mat-list-item>
-         <button routerLink="register" mat-button ><mat-icon>person_add</mat-icon>Become a member</button>
-        </mat-list-item> -->
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-container class = "RouterStyle" [ngStyle]="{ backgroundImage: 'linear-gradient(to bottom, #000000 5%, transparent), url( ../../assets/CapstoneBackground.png)' }">
     <div >
       <router-outlet />
     </div>
-
-
   </mat-drawer-container>
 </mat-drawer-container>
 
-<!-- <mat-sidenav-container autosize>
-  <mat-sidenav [(opened)]= "showFiller" mode="side">
-    <mat-list>
-      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
-      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
-      <mat-list-item><a routerLink="/home">Home</a></mat-list-item>
-    </mat-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet />
-  </mat-sidenav-content>
-</mat-sidenav-container> -->

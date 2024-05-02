@@ -3,21 +3,10 @@
 }
 
 .ColorScheme-Nav{
-
-/*   background-color: #032541; */
-
   background-color: #001628;
-  /*background-color: #347171; */
-
   box-shadow: 10px 10px;
-  /* height: 100%; */
 }
 .RouterStyle{
-  /* background-color: #99D9D9; */
-  /* background-color: #355464; */
-  /* background-image: url("../CapstoneBackground.png"); */
-  /* background-color: blue; */
-  /* background-image: linear-gradient(to right, #A0E8E8 , #000000); */
   height: 100%;
   padding: 10px;
   background-size: cover;
@@ -31,4 +20,3 @@
 img {
   padding: 10px;
 }
-

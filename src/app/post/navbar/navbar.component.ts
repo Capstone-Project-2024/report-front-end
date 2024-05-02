@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { CurrHistory } from '../../history/CurrencyHistory.model';
 import { AptServiceService } from '../../apt-service.service';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
