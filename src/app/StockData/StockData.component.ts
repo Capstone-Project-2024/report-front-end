@@ -66,13 +66,8 @@ export class StockDataComponent {
           const newData = [...this.dataSource.data, exchangeData];
           this.dataSource.data = newData;
         }
-        // console.log("StockSelected :", this.stockPrice);
-        // console.log("exchangedData :", this.dataSource);
-
         //History Code
         this.stockService.addStock(stockPrice.ticker, stockPrice.name, stockPrice.price);
-        // console.log("Ticker: ", stockPrice.ticker);
-        // console.log("Type :", typeof stockPrice.ticker);
       },
       error: (err) => console.error(err)
     });

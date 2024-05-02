@@ -2,7 +2,6 @@
 <mat-card>
   <h3 class="center">Search by Market or Index</h3>
 
-  <!-- Market search with autocomplete -->
   <form class="center">
     <mat-form-field appearance="fill" class="center">
       <input matInput placeholder="Search By Market" [formControl]="searchControl" [matAutocomplete]="auto">
@@ -13,13 +12,6 @@
       </mat-autocomplete>
     </mat-form-field>
   </form>
-
-  <!-- <div *ngIf="stockPrice">
-    <h3>Selected Stock Details:</h3>
-    <p><strong>Symbol:</strong> {{ stockPrice.ticker }}</p>
-    <p><strong>Name:</strong> {{ stockPrice.name }}</p>
-    <p><strong>Price:</strong> {{ stockPrice.price }}</p>
-  </div> -->
 
     <table mat-table [dataSource]="dataSource">
       <ng-container *ngFor="let column of displayedResponseStock" [matColumnDef]="column">
