@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  registrationSuccess = false; // Track registration success
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
@@ -20,21 +21,18 @@ export class RegisterComponent {
   }
 
   onRegister(): void {
-    if (this.registerForm.invalid) {
+    if (this.registerForm.invalid || this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
       return; 
-    }
-
-    if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
-      this.registerForm.controls['confirmPassword'].setErrors({ mismatch: true });
-      return;
     }
 
     this.http.post('/api/register', this.registerForm.value).subscribe({
       next: (response) => {
         console.log('Registration successful', response);
+        this.registrationSuccess = true; // Set success flag
       },
       error: (error) => {
         console.error('Registration failed', error);
+        this.registrationSuccess = false;
       }
     });
   }
