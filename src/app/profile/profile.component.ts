@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy,} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { AptServiceService } from '../apt-service.service';
+import { AptServiceService } from '../api.service';
 import { CurrHistory } from '../history/CurrencyHistory.model';
 import { CoinloreHistory } from '../history/coinloreHistory.model';
 import { StockDataHistory } from '../history/stockDataHistory.model';

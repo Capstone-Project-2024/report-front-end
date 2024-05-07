@@ -4,7 +4,7 @@ import { DataService } from '../services/data.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpHeaders } from '@angular/common/http';
 import { CurrHistory } from '../history/CurrencyHistory.model';
-import { AptServiceService } from '../apt-service.service';
+import { AptServiceService } from '../api.service';
 
 
 @Component({

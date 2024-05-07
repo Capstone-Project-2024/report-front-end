@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { map, startWith } from 'rxjs/operators';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { AptServiceService } from '../apt-service.service';
+import { AptServiceService } from '../api.service';
 
 @Component({
   selector: 'app-StockData',

@@ -4,7 +4,7 @@ import { DataService } from '../services/data.service';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { CoinloreHistory } from '../history/coinloreHistory.model';
-import { AptServiceService } from '../apt-service.service';
+import { AptServiceService } from '../api.service';
 
 @Component({
   selector: 'app-coinlore',
