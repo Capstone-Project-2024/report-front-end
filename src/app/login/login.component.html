@@ -21,6 +21,9 @@
 
     <mat-card-content>
       <button mat-raised-button type="submit" style="background-color: #347171;">Login</button>
+      <div *ngIf="loginSuccess" style="color: green; margin-top: 20px; text-align: center;">
+        Successfully logged in
+      </div>
       <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
       <p>Dont have an account already? Click <a routerLink="/register" style="color: #347171;">HERE</a> to register!</p>
     </mat-card-content>
